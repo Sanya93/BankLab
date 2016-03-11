@@ -1,0 +1,7 @@
+C:\Users\Developer\Desktop\ComputerService\BankLab\bl_resources\bin\Debug\bl_resources.dll
+C:\Users\Developer\Desktop\ComputerService\BankLab\bl_resources\bin\Debug\bl_resources.pdb
+C:\Users\Developer\Desktop\ComputerService\BankLab\bl_resources\obj\Debug\bl_resources.csprojResolveAssemblyReference.cache
+C:\Users\Developer\Desktop\ComputerService\BankLab\bl_resources\obj\Debug\bl_resources.Resource1.resources
+C:\Users\Developer\Desktop\ComputerService\BankLab\bl_resources\obj\Debug\bl_resources.csproj.GenerateResource.Cache
+C:\Users\Developer\Desktop\ComputerService\BankLab\bl_resources\obj\Debug\bl_resources.dll
+C:\Users\Developer\Desktop\ComputerService\BankLab\bl_resources\obj\Debug\bl_resources.pdb
