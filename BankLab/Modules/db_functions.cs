@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Data.OleDb;
 using System.Windows.Forms;
 using Access = Microsoft.Office.Interop.Access;
+using System.Runtime.Remoting.Lifetime;
 
 
 namespace BankLab
@@ -48,24 +49,28 @@ public class DBBankLabFunctions
 
 	public void FreeDB()
 	{
-		ResultDataSet.Dispose();
-		I_OleDataAdapter.Dispose();
-		I_OleConnection.Close();
-		I_OleConnection.Dispose();
+
+		//ResultDataSet.;
+		//I_OleDataAdapter.InitializeLifetimeService;
+		//ILease gg = (ILease)I_OleConnection.InitializeLifetimeService();
+		//gg.InitialLeaseTime = TimeSpan.FromMilliseconds(1000);
+		//MessageBox.Show(gg.CurrentLeaseTime.ToString());
+		//OleDbConnection.ReleaseObjectPool();
+		//I_OleConnection.Dispose();
 	}
 
 	public bool OpenTable(string TableName)
 	{
 		try {
 				OleDbCommand Command = new OleDbCommand();
-				I_OleConnection.Open();
+				//I_OleConnection.Open();
 				Command.CommandText = "SELECT * FROM " + TableName;
 				Command.Connection = I_OleConnection;
 				I_OleDataAdapter.SelectCommand = Command;
 				I_OleCommandBuilder = new OleDbCommandBuilder(I_OleDataAdapter);
 				ResultDataSet.Tables.Clear();
 				I_OleDataAdapter.Fill(ResultDataSet, TableName);
-				I_OleConnection.Close();
+				//I_OleConnection.Close();
 				return true;
 			}
 		catch (System.Data.OleDb.OleDbException ex) { 

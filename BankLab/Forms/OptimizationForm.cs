@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Data.OleDb;
 
 namespace BankLab
 {
@@ -42,9 +43,12 @@ public partial class OptimizationForm : Form
 			bl_res_doc.Resource1.optimization_db,
 			AppDomain.CurrentDomain.BaseDirectory + "optimization_db.accdb");
 		DbFile.CreateFile();
-		DBFunc = new DBBankLabFunctions(
-			AppDomain.CurrentDomain.BaseDirectory + "optimization_db.accdb",
-			Parent);
+		string path;
+		OleDbConnection OleConnection = new OleDbConnection(
+			"Provider=Microsoft.ACE.OLEDB.12.0;" + 
+			"OLE DB Services = -2;" +
+			"Data Source=" + AppDomain.CurrentDomain.BaseDirectory + "optimization_db.accdb");
+		DBFunc = new DBBankLabFunctions(OleConnection, Parent);
 		this.Size = Parent.GetMdiConteinerSize();
 		Parent.SetCenterToMDIForms();
 	}
@@ -465,7 +469,8 @@ public partial class OptimizationForm : Form
 	private void OptimizationForm_FormClosing(object sender, FormClosingEventArgs e)
 	{
 		DBFunc.FreeDB();
-		DbFile.FreeFile();
+		//GC.Collect();
+		//DbFile.FreeFile();
 	}
 }
 }

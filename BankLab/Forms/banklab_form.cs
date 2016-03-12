@@ -323,32 +323,38 @@ public partial class BankLab : Form
 
 	private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
 	{
-		if (CurrentDataTable.GetDataTable() != null){
+		if (CurrentDataTable.GetDataTable().SelectedCells.Count > 0 ) {
 			for (int i = 0; i < CurrentDataTable.GetDataTable().SelectedCells.Count; i++) {
-				CurrentDataTable.GetDataTable().SelectedCells[i].Value = string.Empty;
+				if (CurrentDataTable.GetDataTable().SelectedCells[i].ColumnIndex > 0) { 
+					CurrentDataTable.GetDataTable().SelectedCells[i].Value = string.Empty;
+				}
 			}
 		}
 	}
 
 	private void копироватьToolStripMenuItem_Click(object sender, EventArgs e)
 	{
-		if (CurrentDataTable.GetDataTable() != null){
+		if (CurrentDataTable.GetDataTable().SelectedCells.Count > 0 ) {
 			Clipboard.SetText(CurrentDataTable.GetDataTable().SelectedCells[0].Value.ToString());
 		}
 	}
 
 	private void вставитьToolStripMenuItem_Click(object sender, EventArgs e)
 	{
-		if (CurrentDataTable.GetDataTable() != null) {
-			CurrentDataTable.GetDataTable().SelectedCells[0].Value = Clipboard.GetText();
+		if (CurrentDataTable.GetDataTable().SelectedCells.Count > 0 ) {
+				if (CurrentDataTable.GetDataTable().SelectedCells[0].ColumnIndex > 0) { 
+					CurrentDataTable.GetDataTable().SelectedCells[0].Value = Clipboard.GetText();
+				}
 		}
 	}
 
 	private void вырезатьToolStripMenuItem_Click(object sender, EventArgs e)
 	{
-		if (CurrentDataTable.GetDataTable() != null) {
-			Clipboard.SetText(CurrentDataTable.GetDataTable().SelectedCells[0].Value.ToString());
-			CurrentDataTable.GetDataTable().SelectedCells[0].Value = string.Empty;
+		if (CurrentDataTable.GetDataTable().SelectedCells.Count > 0 ) {
+			if (CurrentDataTable.GetDataTable().SelectedCells[0].ColumnIndex > 0) { 
+				Clipboard.SetText(CurrentDataTable.GetDataTable().SelectedCells[0].Value.ToString());
+				CurrentDataTable.GetDataTable().SelectedCells[0].Value = string.Empty;
+		   }
 		}
 	}
 }

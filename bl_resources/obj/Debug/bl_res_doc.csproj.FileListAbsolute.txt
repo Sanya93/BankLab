@@ -14,3 +14,11 @@ C:\Users\Admin\Desktop\Banklab-master\bl_resources\obj\Debug\bl_res_doc.Resource
 C:\Users\Admin\Desktop\Banklab-master\bl_resources\obj\Debug\bl_res_doc.csproj.GenerateResource.Cache
 C:\Users\Admin\Desktop\Banklab-master\bl_resources\obj\Debug\bl_res_doc.dll
 C:\Users\Admin\Desktop\Banklab-master\bl_resources\obj\Debug\bl_res_doc.pdb
+C:\Users\Admin\Desktop\Banklab\bl_resources\bin\Debug\Resources\optimization_db.accdb
+C:\Users\Admin\Desktop\Banklab\bl_resources\bin\Debug\bl_res_doc.dll
+C:\Users\Admin\Desktop\Banklab\bl_resources\bin\Debug\bl_res_doc.pdb
+C:\Users\Admin\Desktop\Banklab\bl_resources\obj\Debug\bl_res_doc.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\Banklab\bl_resources\obj\Debug\bl_res_doc.Resource1.resources
+C:\Users\Admin\Desktop\Banklab\bl_resources\obj\Debug\bl_res_doc.csproj.GenerateResource.Cache
+C:\Users\Admin\Desktop\Banklab\bl_resources\obj\Debug\bl_res_doc.dll
+C:\Users\Admin\Desktop\Banklab\bl_resources\obj\Debug\bl_res_doc.pdb

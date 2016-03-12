@@ -14,3 +14,11 @@ C:\Users\Admin\Desktop\Banklab-master\bl_res_styles\obj\Debug\bl_res_styles.Reso
 C:\Users\Admin\Desktop\Banklab-master\bl_res_styles\obj\Debug\bl_res_styles.csproj.GenerateResource.Cache
 C:\Users\Admin\Desktop\Banklab-master\bl_res_styles\obj\Debug\bl_res_styles.dll
 C:\Users\Admin\Desktop\Banklab-master\bl_res_styles\obj\Debug\bl_res_styles.pdb
+C:\Users\Admin\Desktop\Banklab\bl_res_styles\bin\Debug\Resources\page_white.png
+C:\Users\Admin\Desktop\Banklab\bl_res_styles\bin\Debug\bl_res_styles.dll
+C:\Users\Admin\Desktop\Banklab\bl_res_styles\bin\Debug\bl_res_styles.pdb
+C:\Users\Admin\Desktop\Banklab\bl_res_styles\obj\Debug\bl_res_styles.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\Banklab\bl_res_styles\obj\Debug\bl_res_styles.Resource1.resources
+C:\Users\Admin\Desktop\Banklab\bl_res_styles\obj\Debug\bl_res_styles.csproj.GenerateResource.Cache
+C:\Users\Admin\Desktop\Banklab\bl_res_styles\obj\Debug\bl_res_styles.dll
+C:\Users\Admin\Desktop\Banklab\bl_res_styles\obj\Debug\bl_res_styles.pdb
