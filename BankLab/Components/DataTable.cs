@@ -206,7 +206,12 @@ public class DataTable
 	{
 		for (int i = 0; i < DTable.Rows.Count; i++) {
 			for (int j = 1; j < DTable.Rows[i].Cells.Count; j++) {
-				DTable.Rows[i].Cells[j].Value = Data.Tables[TableName].Rows[i][j];
+				if (Data.Tables[TableName].Rows[i][j] != DBNull.Value) {
+					DTable.Rows[i].Cells[j].Value = Data.Tables[TableName].Rows[i][j];
+				}
+				else {
+					DTable.Rows[i].Cells[j].Value = null;
+				}
 			}
 		}
 	}

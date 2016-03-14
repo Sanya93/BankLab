@@ -29,11 +29,31 @@ public partial class OptimizationForm : Form
 	private bool TableEdited;
 	private ResFile DbFile;
 	private BankLab Parent;
+	private Form PreviousForm = null;
 
 	public OptimizationForm(BankLab parent)
 	{
 		InitializeComponent();
 		Parent = parent;
+		if (Parent != null) { 
+			PreviousForm = Parent.MDI.GetCurrentVisibleForm();
+			if (PreviousForm != null) {
+				PreviousForm.Hide();
+			}
+			else {
+				Parent.CurrentDataTable.GetDataTable().Hide();
+			}
+		}
+	}
+
+	public void SetPreviousForm(Form value)
+	{
+		PreviousForm = value;
+	}
+
+	public Form GetPreviousForm()
+	{
+		return PreviousForm;
 	}
 
 	private void MainForm_Load(object sender, EventArgs e)
@@ -43,7 +63,7 @@ public partial class OptimizationForm : Form
 			bl_res_doc.Resource1.optimization_db,
 			AppDomain.CurrentDomain.BaseDirectory + "optimization_db.accdb");
 		DbFile.CreateFile();
-		string path;
+		//string path;
 		OleDbConnection OleConnection = new OleDbConnection(
 			"Provider=Microsoft.ACE.OLEDB.12.0;" + 
 			"OLE DB Services = -2;" +
@@ -439,9 +459,11 @@ public partial class OptimizationForm : Form
 	private void back_button_Click(object sender, EventArgs e)
 	{
 		if (CheckChanges() == 1) { 
-			Parent.CurrentMenu.SetMainMenuEnableOn();
-			if (Parent.CurrentDataTable.GetDataTable() != null) {
-				Parent.CurrentDataTable.GetDataTable().Visible = true;
+			if (PreviousForm != null) {
+				PreviousForm.Show();
+			}
+			else {
+				Parent.CurrentDataTable.SetTableVisibleOn();
 			}
 			this.Close();
 		}
@@ -468,7 +490,7 @@ public partial class OptimizationForm : Form
 
 	private void OptimizationForm_FormClosing(object sender, FormClosingEventArgs e)
 	{
-		DBFunc.FreeDB();
+		//DBFunc.FreeDB();
 		//GC.Collect();
 		//DbFile.FreeFile();
 	}

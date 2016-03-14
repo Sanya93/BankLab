@@ -16,11 +16,31 @@ public partial class forecast_form : Form
 {
 	private BankLab Parent = null;
 	private float[,] Cache;
+	private Form PreviousForm = null;
 
 	public forecast_form(BankLab parent)
 	{
 		InitializeComponent();
 		Parent = parent;
+		if (Parent != null) { 
+			PreviousForm = Parent.MDI.GetCurrentVisibleForm();
+			if (PreviousForm != null) {
+				PreviousForm.Hide();
+			}
+			else {
+				Parent.CurrentDataTable.GetDataTable().Hide();
+			}
+		}
+	}
+
+	public void SetPreviousForm(Form value)
+	{
+		PreviousForm = value;
+	}
+
+	public Form GetPreviousForm()
+	{
+		return PreviousForm;
 	}
 
 	public void ReadDataToCache()
@@ -63,8 +83,12 @@ public partial class forecast_form : Form
 
 	private void CloseForecastFormDelegate(object sender, CancelEventArgs e)
 	{
-		Parent.CurrentMenu.SetMainMenuEnableOn();
-		Parent.CurrentDataTable.SetTableVisibleOn();
+		if (PreviousForm != null) {
+			PreviousForm.Show();
+		}
+		else {
+			Parent.CurrentDataTable.SetTableVisibleOn();
+		}
 	}
 
 	private void cancel_Click(object sender, EventArgs e)

@@ -113,7 +113,7 @@ public partial class open_form : Form
 	{
 		if (TableListBox.Items.Count > 0) {
 			if ((OpenningDataBase != null) &&
-				(TableListBox.Items[TableListBox.SelectedIndex] != String.Empty)) {
+				(TableListBox.Items[TableListBox.SelectedIndex].ToString() != String.Empty)) {
 				String TableName = (String)TableListBox.Items[TableListBox.SelectedIndex];
 				TryOpenDataBaseTable(TableName, DataBasePath);
 			}

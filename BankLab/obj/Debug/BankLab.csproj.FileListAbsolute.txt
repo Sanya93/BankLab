@@ -91,3 +91,5 @@ C:\Users\Admin\Desktop\Banklab\BankLab\obj\Debug\BankLab.csproj.GenerateResource
 C:\Users\Admin\Desktop\Banklab\BankLab\obj\Debug\BankLab.TrustInfo.xml
 C:\Users\Admin\Desktop\Banklab\BankLab\obj\Debug\BankLab.exe.manifest
 C:\Users\Admin\Desktop\Banklab\BankLab\obj\Debug\BankLab.application
+C:\Users\Admin\Desktop\Banklab\BankLab\obj\Debug\BankLab.AuthorsForm.resources
+C:\Users\Admin\Desktop\Banklab\BankLab\obj\Debug\BankLab.SettingsForm.resources

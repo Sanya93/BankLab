@@ -57,5 +57,14 @@ public partial class CorrelationForm : Form
 		Parent.MDI.ShowMDIForm(CurrentRegressionForm, Params);
 		this.Hide();
 	}
+
+	private void back_button_Click(object sender, EventArgs e)
+	{
+		Parent.CurrentCoefficientForm.GetCurrentCoefficientForm().Hide();
+		SelectColumnsForm.Close();
+		Parent.CurrentMenu.SetMainMenuEnableOn();
+		Parent.CurrentDataTable.SetTableVisibleOn();
+		this.Close();
+	}
 }
 }

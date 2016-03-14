@@ -53,5 +53,14 @@ public partial class RegressionForm : Form
 						MessageBoxButtons.OK, 
 						MessageBoxIcon.Information);
 	}
+
+	private void back_button_Click(object sender, EventArgs e)
+	{
+		Parent.CurrentCoefficientForm.GetCurrentCoefficientForm().Hide();
+		SelectColumnsForm.Close();
+		Parent.CurrentMenu.SetMainMenuEnableOn();
+		Parent.CurrentDataTable.SetTableVisibleOn();
+		this.Close();
+	}
 }
 }

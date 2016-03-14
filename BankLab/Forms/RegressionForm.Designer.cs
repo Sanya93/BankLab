@@ -31,6 +31,7 @@
 			this.ButtonPanel = new System.Windows.Forms.Panel();
 			this.StartButton = new System.Windows.Forms.Button();
 			this.BackButton = new System.Windows.Forms.Button();
+			this.back_button = new System.Windows.Forms.Button();
 			this.ButtonPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -77,11 +78,23 @@
 			this.BackButton.UseVisualStyleBackColor = true;
 			this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
 			// 
+			// back_button
+			// 
+			this.back_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.back_button.Location = new System.Drawing.Point(322, 5);
+			this.back_button.Name = "back_button";
+			this.back_button.Size = new System.Drawing.Size(155, 20);
+			this.back_button.TabIndex = 12;
+			this.back_button.Text = "Назад к главной таблице";
+			this.back_button.UseVisualStyleBackColor = true;
+			this.back_button.Click += new System.EventHandler(this.back_button_Click);
+			// 
 			// RegressionForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(500, 300);
+			this.Controls.Add(this.back_button);
 			this.Controls.Add(this.ButtonPanel);
 			this.Controls.Add(this.title_label);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -100,5 +113,6 @@
 		private System.Windows.Forms.Panel ButtonPanel;
 		private System.Windows.Forms.Button StartButton;
 		private System.Windows.Forms.Button BackButton;
+		private System.Windows.Forms.Button back_button;
 	}
 }

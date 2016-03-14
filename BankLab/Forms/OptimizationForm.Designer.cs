@@ -222,11 +222,11 @@
 			// back_button
 			// 
 			this.back_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.back_button.Location = new System.Drawing.Point(592, 32);
+			this.back_button.Location = new System.Drawing.Point(679, 32);
 			this.back_button.Name = "back_button";
-			this.back_button.Size = new System.Drawing.Size(155, 20);
+			this.back_button.Size = new System.Drawing.Size(68, 20);
 			this.back_button.TabIndex = 11;
-			this.back_button.Text = "Назад к главной форме";
+			this.back_button.Text = "Назад";
 			this.back_button.UseVisualStyleBackColor = true;
 			this.back_button.Click += new System.EventHandler(this.back_button_Click);
 			// 

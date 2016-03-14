@@ -13,12 +13,32 @@ namespace BankLab
 public partial class DataBaseEditor : Form
 {
 	private BankLab Parent;
+	private Form PreviousForm = null;
 
 	public DataBaseEditor(BankLab parent)
 	{
 		InitializeComponent();
   		Parent = parent;
+		if (Parent != null) { 
+			PreviousForm = Parent.MDI.GetCurrentVisibleForm();
+			if (PreviousForm != null) {
+				PreviousForm.Hide();
+			}
+			else {
+				Parent.CurrentDataTable.GetDataTable().Hide();
+			}
+		}
 		this.FormClosing += CloseDataBaseEditorFormDelegate;
+	}
+
+	public void SetPreviousForm(Form value)
+	{
+		PreviousForm = value;
+	}
+
+	public Form GetPreviousForm()
+	{
+		return PreviousForm;
 	}
 
 	private void back_btn_Click(object sender, EventArgs e)
@@ -33,8 +53,7 @@ public partial class DataBaseEditor : Form
 							"Откройте базу данных",
 							MessageBoxButtons.OK,
 							MessageBoxIcon.Exclamation);
-			Parent.CurrentMenu.SetMainMenuEnableOn();
-			Parent.CurrentDataTable.SetTableVisibleOn();
+			CloseDataBaseEditorFormDelegate(null,null);
 			this.Close();
 		}
 		else {
@@ -44,8 +63,12 @@ public partial class DataBaseEditor : Form
 
 	private void CloseDataBaseEditorFormDelegate(object sender, CancelEventArgs e)
 	{
-		Parent.CurrentMenu.SetMainMenuEnableOn();
-		Parent.CurrentDataTable.SetTableVisibleOn();
+		if (PreviousForm != null) {
+			PreviousForm.Show();
+		}
+		else {
+			Parent.CurrentDataTable.SetTableVisibleOn();
+		}
 	}	
 
 	private void DelegateButtonsDown(object sender, KeyEventArgs e)

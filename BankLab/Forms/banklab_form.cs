@@ -190,6 +190,9 @@ public partial class BankLab : Form
 				this.Text = "BankLab";
 				CurrentMenu.ChangeMenuItemsEnable(false);
 				CurrentDataBase.DataBaseClearValue();
+				foreach (Form MDIForm in this.MdiChildren) {
+					MDIForm.Close();
+				}
 				CurrentSideBar.ClearSideBar();
 			}
 			catch (Exception ex) { }
@@ -201,6 +204,8 @@ public partial class BankLab : Form
 																EventArgs e)
 	{
 		CurrentSideBar.StartFlowSideBar();
+  		SizeFlag = true;
+		BankLab_ResizeEnd(null, null);
 	}
 
 	private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -277,27 +282,29 @@ public partial class BankLab : Form
 
 	private void прогнозированиеToolStripMenuItem_Click(object sender, EventArgs e)
 	{
-			CurrentDataTable.GetDataTable().Visible = false;
-			CurrentMenu.GetCurrentMenu().Enabled = false;
+		if (MDI.TryShowMDIForm(typeof(forecast_form)) == 0) {
 			forecast_form CurrentForecastForm = new forecast_form(null);
 			object[] Params = new object[1];
 			Params[0] = this;
 			MDI.ShowMDIForm(CurrentForecastForm, Params);
+		}
 	}
 
 	private void оптимизацияToolStripMenuItem_Click(object sender, EventArgs e)
 	{
-		CurrentDataTable.GetDataTable().Visible = false;
-		CurrentMenu.GetCurrentMenu().Enabled = false;
-		OptimizationForm CurrentOptimizationForm = new OptimizationForm(null);
-		object[] Params = new object[1];
-		Params[0] = this;
-		MDI.ShowMDIForm(CurrentOptimizationForm, Params);
+		if (MDI.TryShowMDIForm(typeof(OptimizationForm)) == 0) {	
+			OptimizationForm CurrentOptimizationForm = new OptimizationForm(null);
+			object[] Params = new object[1];
+			Params[0] = this;
+			MDI.ShowMDIForm(CurrentOptimizationForm, Params);
+		}
 	}
 
 	private void sidebar_splitter_SplitterMoved(object sender, SplitterEventArgs e)
 	{
-		SetMinimumSize(CurrentCoefficientForm.GetCurrentCoefficientForm().Size);
+		SizeFlag = true;
+		BankLab_ResizeEnd(null, null);
+		SetMinimumSize(MDI.GetCurrentVisibleForm().Size);
 		SetCenterToMDIForms();
 	}
 
@@ -355,6 +362,27 @@ public partial class BankLab : Form
 				Clipboard.SetText(CurrentDataTable.GetDataTable().SelectedCells[0].Value.ToString());
 				CurrentDataTable.GetDataTable().SelectedCells[0].Value = string.Empty;
 		   }
+		}
+	}
+
+	private void обАвторахToolStripMenuItem_Click(object sender, EventArgs e)
+	{
+		if (MDI.TryShowMDIForm(typeof(AuthorsForm)) == 0) {
+			AuthorsForm CurrentAuthorsForm = new AuthorsForm(null);
+			object[] Params = new object[1];
+			Params[0] = this;
+			MDI.ShowMDIForm(CurrentAuthorsForm, Params);
+		}
+
+	}
+
+	private void настройкиПрограммыToolStripMenuItem_Click(object sender, EventArgs e)
+	{	
+		if (MDI.TryShowMDIForm(typeof(SettingsForm)) == 0) {
+			SettingsForm CurrentSettingsForm = new SettingsForm(null);
+			object[] Params = new object[1];
+			Params[0] = this;
+			MDI.ShowMDIForm(CurrentSettingsForm, Params);
 		}
 	}
 }
