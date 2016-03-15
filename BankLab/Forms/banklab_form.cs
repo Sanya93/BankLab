@@ -199,6 +199,7 @@ public partial class BankLab : Form
 				this.Text = "BankLab";
 				CurrentMenu.ChangeMenuItemsEnable(false);
 				CurrentDataBase.DataBaseClearValue();
+				CurrentCoefficientForm.SetCurrentCoefficientForm(null);
 				foreach (Form MDIForm in this.MdiChildren) {
 					MDIForm.Close();
 				}

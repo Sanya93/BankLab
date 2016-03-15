@@ -84,11 +84,13 @@
 			// 
 			// target_coef
 			// 
+			this.target_coef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.target_coef.FormattingEnabled = true;
 			this.target_coef.Location = new System.Drawing.Point(28, 72);
 			this.target_coef.Name = "target_coef";
 			this.target_coef.Size = new System.Drawing.Size(350, 21);
 			this.target_coef.TabIndex = 16;
+			this.target_coef.TabStop = false;
 			this.target_coef.SelectedIndexChanged += new System.EventHandler(this.target_coef_SelectedIndexChanged);
 			// 
 			// constant_edit
@@ -144,6 +146,7 @@
 			// 
 			this.result_edit.Location = new System.Drawing.Point(176, 237);
 			this.result_edit.Name = "result_edit";
+			this.result_edit.ReadOnly = true;
 			this.result_edit.Size = new System.Drawing.Size(204, 20);
 			this.result_edit.TabIndex = 20;
 			// 

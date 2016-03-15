@@ -52,9 +52,10 @@
 			this.title_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.title_label.Location = new System.Drawing.Point(22, 7);
 			this.title_label.Name = "title_label";
-			this.title_label.Size = new System.Drawing.Size(264, 17);
+			this.title_label.Size = new System.Drawing.Size(264, 34);
 			this.title_label.TabIndex = 1;
-			this.title_label.Text = "Расчет финансовой устойчивости";
+			this.title_label.Text = "Расчет финансовой устойчивости\r\nбанка";
+			this.title_label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
 			// excel_ico
 			// 

@@ -36,29 +36,45 @@ namespace BankLab.Components
 			CurrentForm = null;
 		}
 
+		public void CloseCoefficientChilrenForm()
+		{
+			Type[] ChildrenTypes = new Type[]{typeof(ParamForm),typeof(CorrelationForm),typeof(RegressionForm)};
+			foreach (Type type in ChildrenTypes) {
+				Form tmp_form = Parent.MDI.GetMDIFormByType(type);
+				if (tmp_form != null) {
+					Form NextForm = Parent.MDI.GetNextForm(tmp_form);
+					if (NextForm != null) { 
+						NextForm.GetType().GetMethod("SetPreviousForm").Invoke(NextForm,new object[]{CurrentForm});
+					}
+					tmp_form.Close();
+				}	
+			}
+		}
+
+		public void SwitchCoefficientForm(int Index)
+		{
+			CloseCoefficientChilrenForm();
+			if (Parent.CurrentCoefficientForm.GetCurrentCoefficientForm() == null) {
+				ShowCoefficientForm(Index);
+			}
+			else {
+				Parent.MDI.TryShowMDIForm(typeof(coefficient_form));
+				Parent.CurrentCoefficientForm.GetCurrentCoefficientForm().SetIndex(Index);
+				Parent.CurrentCoefficientForm.GetCurrentCoefficientForm().AddTableAtForm();
+			}
+		}
+
 		public void CoefficientClickDelegate(Object sender, EventArgs e)
 		{
 			if (Parent.CurrentDataTable.GetDataTable().RowCount > 0) {
 				int Index = Array.IndexOf(bl_res_styles.bl_helper.Knames,
 					sender.GetType().GetProperty("Text").GetValue(sender).ToString());
-				if (Parent.CurrentCoefficientForm.GetCurrentCoefficientForm() == null) {
-					ShowCoefficientForm(Index);
-				}
-				else {
-					//Parent.CurrentDataTable.GetDataTable().Visible = false;
-					//Parent.MainMenuStrip.Enabled = false;
-					//Parent.CurrentCoefficientForm.GetCurrentCoefficientForm().Show();
-					Parent.MDI.TryShowMDIForm(typeof(coefficient_form));
-					Parent.CurrentCoefficientForm.GetCurrentCoefficientForm().SetIndex(Index);
-					Parent.CurrentCoefficientForm.GetCurrentCoefficientForm().AddTableAtForm();
-				}
+				SwitchCoefficientForm(Index);
 			}
 		}
 
 		public void ShowCoefficientForm(int Index)
 		{
-			//Parent.CurrentDataTable.GetDataTable().Visible = false;
-			//Parent.MainMenuStrip.Enabled = false;
 			if ((Index != -1) && (CurrentForm == null)) {
 				CurrentForm = new coefficient_form(null, 0);
 			}

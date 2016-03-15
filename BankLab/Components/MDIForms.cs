@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 
@@ -59,9 +58,9 @@ public class MDIForms
 		return Parent.MdiChildren.FirstOrDefault(form => form.Visible);
 	}
 
-	public void ChangeLink(Form currentForm)
+	public Form GetNextForm(Form currentForm)
 	{
-		Form NextForm = Parent.MdiChildren.FirstOrDefault(
+		return Parent.MdiChildren.FirstOrDefault(
 			form => {
 				MethodInfo Method = form.GetType().GetMethod("GetPreviousForm");
 				if (Method != null) { 
@@ -72,6 +71,11 @@ public class MDIForms
 					return false;
 				}
 			});
+	}
+
+	public void ChangeLink(Form currentForm)
+	{
+		Form NextForm = GetNextForm(currentForm);
 		if (NextForm != null) { 
 			Form PreviousForm = (Form)currentForm.GetType().GetMethod("GetPreviousForm").Invoke(currentForm,null);
 			NextForm.GetType().GetMethod("SetPreviousForm").Invoke(NextForm,new object[]{PreviousForm});

@@ -84,17 +84,7 @@ public class SideBar
 	private void CoefItemClick(Object Sender, EventArgs e)
 	{
 		int Index = bl_res_styles.bl_helper.Knames.ToList().IndexOf(((Label)Sender).Text);
-		if (FormParent.CurrentCoefficientForm.GetCurrentCoefficientForm() == null) {
-			FormParent.CurrentCoefficientForm.ShowCoefficientForm(Index);
-		}
-		else{
-			//FormParent.CurrentDataTable.GetDataTable().Visible = false;
-			//FormParent.MainMenuStrip.Enabled = false;
-			//FormParent.CurrentCoefficientForm.GetCurrentCoefficientForm().Show();
-			FormParent.MDI.TryShowMDIForm(typeof(coefficient_form));
-			FormParent.CurrentCoefficientForm.GetCurrentCoefficientForm().SetIndex(Index);
-			FormParent.CurrentCoefficientForm.GetCurrentCoefficientForm().AddTableAtForm();
-		}
+		FormParent.CurrentCoefficientForm.SwitchCoefficientForm(Index);
 	}
 
 	public int AddTables()

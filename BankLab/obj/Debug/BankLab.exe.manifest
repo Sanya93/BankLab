@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BankLab.exe" size="304128">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BankLab.exe" size="305152">
       <assemblyIdentity name="BankLab" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>/JvCmNRNwlVYlGGDFIHyaf2JDay4CvogiBC5yXJAgPE=</dsig:DigestValue>
+        <dsig:DigestValue>CpDx4bugbJIDPwLOqouwtslx5aGJ62Niy2QIfSMGgpg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>UQeqIgnocbC9q5TTibnjo4+Q62V6W/ftcawL+1UsZho=</dsig:DigestValue>
+        <dsig:DigestValue>kdmHmfHgK4BbCRo0vvy4L9iuNFx7aDMtHTI6l3JT6/8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>2JezlhHS3DL4DYjssYf/0Opau4yr+ggh4TDV6HrA0/s=</dsig:DigestValue>
+        <dsig:DigestValue>km0E16BBR0Ns46ruSfjrbdXaWXh+oGipRLdejqwupYs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

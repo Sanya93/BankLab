@@ -27,6 +27,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.title_label = new System.Windows.Forms.Label();
 			this.back_button = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
@@ -35,6 +36,7 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.SuspendLayout();
 			// 
 			// title_label
@@ -80,6 +82,7 @@
 			this.label2.Size = new System.Drawing.Size(207, 53);
 			this.label2.TabIndex = 14;
 			this.label2.Text = "BankLab";
+			this.label2.MouseEnter += new System.EventHandler(this.label2_MouseEnter);
 			// 
 			// label3
 			// 
@@ -119,6 +122,11 @@
 			this.label6.TabIndex = 18;
 			this.label6.Text = "Приложение разработала: Макишова Д.В.";
 			// 
+			// toolTip1
+			// 
+			this.toolTip1.ToolTipTitle = "SomeText";
+			this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+			// 
 			// AuthorsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,5 +159,6 @@
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.ToolTip toolTip1;
 	}
 }

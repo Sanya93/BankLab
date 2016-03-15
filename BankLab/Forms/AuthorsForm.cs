@@ -50,5 +50,15 @@ public partial class AuthorsForm : Form
 		}
 		this.Close();
 	}
+
+	private void toolTip1_Popup(object sender, PopupEventArgs e)
+	{
+
+	}
+
+	private void label2_MouseEnter(object sender, EventArgs e)
+	{
+		toolTip1.Show("Подсказка", label2);
+	}
 }
 }

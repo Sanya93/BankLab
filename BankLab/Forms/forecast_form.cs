@@ -109,7 +109,7 @@ public partial class forecast_form : Form
 			}
 		}
 		result_edit.Text  = Cache[Index,1].ToString();
+		result_edit.Focus();
 	}
-
 }
 } 
