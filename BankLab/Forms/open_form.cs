@@ -17,12 +17,32 @@ public partial class open_form : Form
 	private DataGridView DataTable = null;
 	private String DataBasePath = String.Empty;
 	private DBBankLabFunctions OpenningDataBase = null;
+	private Form PreviousForm = null;
 
 	public open_form(BankLab parent, DataGridView dataTable)
 	{
 		InitializeComponent();
 		Parent = parent;
+		if (Parent != null) { 
+			PreviousForm = Parent.MDI.GetCurrentVisibleForm();
+			if (PreviousForm != null) {
+				PreviousForm.Hide();
+			}
+			else {
+				Parent.CurrentDataTable.GetDataTable().Hide();
+			}
+		}
 		DataTable = dataTable;
+	}
+
+	public void SetPreviousForm(Form value)
+	{
+		PreviousForm = value;
+	}
+
+	public Form GetPreviousForm()
+	{
+		return PreviousForm;
 	}
 
 	private void DelegateButtonsDown(object sender, KeyEventArgs e)
@@ -46,8 +66,12 @@ public partial class open_form : Form
 
 	private void CloseOpenFormDelegate(object sender, CancelEventArgs e)
 	{
-		Parent.CurrentMenu.SetMainMenuEnableOn();
-		Parent.CurrentDataTable.SetTableVisibleOn();
+		if (PreviousForm != null) {
+			PreviousForm.Show();
+		}
+		else {
+			Parent.CurrentDataTable.SetTableVisibleOn();
+		}
 	}
 
 	private void cancel_Click(object sender, EventArgs e)

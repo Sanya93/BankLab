@@ -122,11 +122,11 @@
 			// 
 			// back_button
 			// 
-			this.back_button.Location = new System.Drawing.Point(0, 1);
+			this.back_button.Location = new System.Drawing.Point(3, 0);
 			this.back_button.Name = "back_button";
-			this.back_button.Size = new System.Drawing.Size(155, 20);
+			this.back_button.Size = new System.Drawing.Size(78, 20);
 			this.back_button.TabIndex = 10;
-			this.back_button.Text = "Назад к главной таблице";
+			this.back_button.Text = "Назад";
 			this.back_button.UseVisualStyleBackColor = true;
 			this.back_button.Click += new System.EventHandler(this.back_button_Click);
 			// 
@@ -135,9 +135,9 @@
 			this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.panel1.BackColor = System.Drawing.SystemColors.Control;
 			this.panel1.Controls.Add(this.back_button);
-			this.panel1.Location = new System.Drawing.Point(526, 31);
+			this.panel1.Location = new System.Drawing.Point(590, 31);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(174, 22);
+			this.panel1.Size = new System.Drawing.Size(110, 22);
 			this.panel1.TabIndex = 11;
 			// 
 			// coefficient_form

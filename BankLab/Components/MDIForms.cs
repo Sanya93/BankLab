@@ -37,7 +37,7 @@ public class MDIForms
 		System.Reflection.ConstructorInfo Constructor = CurrentForm.GetType().GetConstructor(Types);
 		CurrentForm = (Form)Constructor.Invoke(Params);
 		//Parent.CurrentMenu.GetCurrentMenu().Enabled = false;
-		Parent.CurrentDataTable.GetDataTable().Visible = false;
+		//Parent.CurrentDataTable.GetDataTable().Visible = false;
 		CurrentForm.MdiParent = Parent;
 		CurrentForm.Visible = false;
 		System.Reflection.MethodInfo CheckBeforeShow = CurrentForm.GetType().GetMethod("CheckBeforeShow");
@@ -61,7 +61,7 @@ public class MDIForms
 
 	public void ChangeLink(Form currentForm)
 	{
-		Form NextForm = Parent.MdiChildren.First(
+		Form NextForm = Parent.MdiChildren.FirstOrDefault(
 			form => {
 				MethodInfo Method = form.GetType().GetMethod("GetPreviousForm");
 				if (Method != null) { 
@@ -71,9 +71,11 @@ public class MDIForms
 				else {
 					return false;
 				}
-			});	
-		Form PreviousForm = (Form)currentForm.GetType().GetMethod("GetPreviousForm").Invoke(currentForm,null);
-		NextForm.GetType().GetMethod("SetPreviousForm").Invoke(NextForm,new object[]{PreviousForm});
+			});
+		if (NextForm != null) { 
+			Form PreviousForm = (Form)currentForm.GetType().GetMethod("GetPreviousForm").Invoke(currentForm,null);
+			NextForm.GetType().GetMethod("SetPreviousForm").Invoke(NextForm,new object[]{PreviousForm});
+		}
 	}
 
 	public int TryShowMDIForm(Type type)

@@ -13,6 +13,7 @@ namespace BankLab
 public partial class coefficient_form : Form
 {
 	private BankLab Parent = null;
+	private Form PreviousForm = null;
 	private int DefaultHeight;
 	private int Index;
 	private DataGridView Table;
@@ -22,8 +23,27 @@ public partial class coefficient_form : Form
 		InitializeComponent();
 		this.DoubleBuffered = true;
 		Parent = parent;
+		if (Parent != null) { 
+			PreviousForm = Parent.MDI.GetCurrentVisibleForm();
+			if (PreviousForm != null) {
+				PreviousForm.Hide();
+			}
+			else {
+				Parent.CurrentDataTable.GetDataTable().Hide();
+			}
+		}
 		DefaultHeight = title_label.Height + sub_main_menu.Height + statusStrip1.Height;
 		Index = index;
+	}
+
+	public void SetPreviousForm(Form value)
+	{
+		PreviousForm = value;
+	}
+
+	public Form GetPreviousForm()
+	{
+		return PreviousForm;
 	}
 
 	public int getDefaultHeight()
@@ -34,8 +54,12 @@ public partial class coefficient_form : Form
 	private void back_button_Click(object Sender, EventArgs e)
 	{
 		this.Hide();
-		Parent.CurrentMenu.SetMainMenuEnableOn();
-		Parent.CurrentDataTable.SetTableVisibleOn();
+		if (PreviousForm != null) {
+			PreviousForm.Show();
+		}
+		else {
+			Parent.CurrentDataTable.SetTableVisibleOn();
+		}
 	}
 
 	private void корреляцияToolStripMenuItem_Click(object sender, EventArgs e)

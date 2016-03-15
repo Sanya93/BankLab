@@ -88,9 +88,10 @@ public class SideBar
 			FormParent.CurrentCoefficientForm.ShowCoefficientForm(Index);
 		}
 		else{
-			FormParent.CurrentDataTable.GetDataTable().Visible = false;
-			FormParent.MainMenuStrip.Enabled = false;
-			FormParent.CurrentCoefficientForm.GetCurrentCoefficientForm().Show();
+			//FormParent.CurrentDataTable.GetDataTable().Visible = false;
+			//FormParent.MainMenuStrip.Enabled = false;
+			//FormParent.CurrentCoefficientForm.GetCurrentCoefficientForm().Show();
+			FormParent.MDI.TryShowMDIForm(typeof(coefficient_form));
 			FormParent.CurrentCoefficientForm.GetCurrentCoefficientForm().SetIndex(Index);
 			FormParent.CurrentCoefficientForm.GetCurrentCoefficientForm().AddTableAtForm();
 		}

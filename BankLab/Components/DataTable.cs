@@ -12,6 +12,7 @@ public class DataTable
 {
 	private DataGridView DTable;
 	private BankLab Parent;
+	private bool HasChanges;
 	
 	/// <summary>
 	/// Получить экземпляр DTable
@@ -30,7 +31,14 @@ public class DataTable
 	{
 		Parent = parentForm;
 		DTable = new DataGridView();
+		HasChanges = false;
+		DTable.CellValueChanged += delegate{ HasChanges = true; };
 		DTable.Visible = false;
+	}
+
+	public bool TableHasChanges()
+	{
+		return HasChanges;
 	}
 
 	/// <summary>
@@ -59,6 +67,8 @@ public class DataTable
 	{
 		DTable.Dispose();
 		DTable = new DataGridView();
+		HasChanges = false;
+		DTable.CellValueChanged += delegate{ HasChanges = true; };
 		DTable.Visible = false;
 		AddHorizontalScrollToDataTable(DTable);
 		Parent.Controls.Add(DTable);
@@ -77,6 +87,8 @@ public class DataTable
 		DTable.Dispose();
 		Parent.CurrentDataBase.DataBaseClearValue();
 		DTable = new DataGridView();
+		HasChanges = false;
+		DTable.CellValueChanged += delegate{ HasChanges = true; };
 		DTable.Visible = false;
 		AddHorizontalScrollToDataTable(DTable);
 		Parent.Controls.Add(DTable);
@@ -214,6 +226,12 @@ public class DataTable
 				}
 			}
 		}
+	}
+
+	public void CloseTable()
+	{
+		DTable.Dispose();
+		HasChanges = false;
 	}
 }
 }

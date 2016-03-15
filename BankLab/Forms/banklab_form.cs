@@ -97,11 +97,14 @@ public partial class BankLab : Form
 
 	private void новыйToolStripMenuItem_Click(object sender, EventArgs e)
 	{
-		object[] Args = new object[2]; 
-		Args[0] = this;
-		Args[1] = true;
-		year_form MDIIntervalForm = new year_form(null, true);
-		MDI.ShowMDIForm(MDIIntervalForm, Args);
+		if (MDI.TryShowMDIForm(typeof(year_form)) == 0) { 
+			SaveCurrentChangesUntilExit();
+			object[] Args = new object[2]; 
+			Args[0] = this;
+			Args[1] = true;
+			year_form MDIIntervalForm = new year_form(null, true);
+			MDI.ShowMDIForm(MDIIntervalForm, Args);
+		}
 	}
 
 	/* Resize children forms location */
@@ -134,6 +137,7 @@ public partial class BankLab : Form
 
 	private void импортToolStripMenuItem_Click(object sender, EventArgs e)
 	{
+		SaveCurrentChangesUntilExit();
 		CurrentProgressBar.ShowProgressBar();
 		ExcelFunctions.ImportExcelFile(this, CurrentDataTable.GetDataTable());
 		CurrentProgressBar.HideProgressBar();
@@ -142,20 +146,24 @@ public partial class BankLab : Form
 	private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
 	{
 		if ((((ToolStripMenuItem)sender).Text == "Сохранить как")&&(сохранитьToolStripMenuItem.Enabled)) {
-			save_form MdiSaveForm = new save_form(null, null);
-			object[] Args = new object[2];
-			Args[0] = this;
-			Args[1] = CurrentDataTable.GetDataTable();
-			MDI.ShowMDIForm(MdiSaveForm, Args);
+			if (MDI.TryShowMDIForm(typeof(save_form)) == 0) { 
+				save_form MdiSaveForm = new save_form(null, null);
+				object[] Args = new object[2];
+				Args[0] = this;
+				Args[1] = CurrentDataTable.GetDataTable();
+				MDI.ShowMDIForm(MdiSaveForm, Args);
+			}
 		}
 		else {
 			if (сохранитьToolStripMenuItem.Enabled) {
-				if ((CurrentDataBase.GetTableName() == String.Empty)&&(CurrentDataBase.GetDatabasePath() == String.Empty)&&(CurrentDataBase.GetCurrentDataBase() == null)) { 
-					save_form MdiSaveForm = new save_form(null,null);
-					object[] Args = new object[2];
-					Args[0] = this;
-					Args[1] = CurrentDataTable.GetDataTable();
-					MDI.ShowMDIForm(MdiSaveForm, Args);
+				if ((CurrentDataBase.GetTableName() == String.Empty)&&(CurrentDataBase.GetDatabasePath() == String.Empty)&&(CurrentDataBase.GetCurrentDataBase() == null)) {
+					if (MDI.TryShowMDIForm(typeof(save_form)) == 0) {
+						save_form MdiSaveForm = new save_form(null, null);
+						object[] Args = new object[2];
+						Args[0] = this;
+						Args[1] = CurrentDataTable.GetDataTable();
+						MDI.ShowMDIForm(MdiSaveForm, Args);
+					}
 				}
 				else {
 					CurrentDataBase.GetCurrentDataBase().UpdateTableData(CurrentDataBase.GetCurrentDataBase().GetDataSet(),CurrentDataBase.GetTableName());
@@ -186,7 +194,8 @@ public partial class BankLab : Form
 			try
 			{
 				/* Close current document */
-				CurrentDataTable.GetDataTable().Dispose();
+				SaveCurrentChangesUntilExit();
+				CurrentDataTable.CloseTable();
 				this.Text = "BankLab";
 				CurrentMenu.ChangeMenuItemsEnable(false);
 				CurrentDataBase.DataBaseClearValue();
@@ -210,25 +219,26 @@ public partial class BankLab : Form
 
 	private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
 	{
-		open_form OpenForm = new open_form(null, null);
-		object[] Args = new object[2];
-		Args[0] = this;
-		Args[1] = CurrentDataTable.GetDataTable();
-		MDI.ShowMDIForm(OpenForm, Args);
+		if (MDI.TryShowMDIForm(typeof(open_form)) == 0) { 
+			SaveCurrentChangesUntilExit();
+			open_form OpenForm = new open_form(null, null);
+			object[] Args = new object[2];
+			Args[0] = this;
+			Args[1] = CurrentDataTable.GetDataTable();
+			MDI.ShowMDIForm(OpenForm, Args);
+		}
 	}
 
 	private int SaveCurrentChangesUntilExit()
 	{
-		if (CurrentDataBase.GetCurrentDataBase() != null) {
-			if (CurrentDataBase.GetCurrentDataBase().GetDataSet().HasChanges()) {
-				DialogResult Result = MessageBox.Show("Сохранить изменения?",
-													  "База данных изменена",
-													  MessageBoxButtons.YesNo,
-													  MessageBoxIcon.Question);
-				if (Result == System.Windows.Forms.DialogResult.Yes) {
-					CurrentDataBase.GetCurrentDataBase().UpdateTableData(CurrentDataBase.GetCurrentDataBase().GetDataSet(), CurrentDataBase.GetTableName());
-					return 1;
-				}
+		if (CurrentDataTable.TableHasChanges()) {
+			DialogResult Result = MessageBox.Show("Сохранить изменения?",
+												  "База данных изменена",
+												  MessageBoxButtons.YesNo,
+												  MessageBoxIcon.Question);
+			if (Result == System.Windows.Forms.DialogResult.Yes) {
+				сохранитьToolStripMenuItem.PerformClick();
+				return 1;
 			}
 		}
 		return 0;
@@ -330,7 +340,7 @@ public partial class BankLab : Form
 
 	private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
 	{
-		if (CurrentDataTable.GetDataTable().SelectedCells.Count > 0 ) {
+		if ((CurrentDataTable.GetDataTable().SelectedCells.Count > 0 )&&(CurrentDataTable.GetDataTable().Visible)) {
 			for (int i = 0; i < CurrentDataTable.GetDataTable().SelectedCells.Count; i++) {
 				if (CurrentDataTable.GetDataTable().SelectedCells[i].ColumnIndex > 0) { 
 					CurrentDataTable.GetDataTable().SelectedCells[i].Value = string.Empty;
@@ -341,14 +351,14 @@ public partial class BankLab : Form
 
 	private void копироватьToolStripMenuItem_Click(object sender, EventArgs e)
 	{
-		if (CurrentDataTable.GetDataTable().SelectedCells.Count > 0 ) {
+		if ((CurrentDataTable.GetDataTable().SelectedCells.Count > 0 )&&(CurrentDataTable.GetDataTable().Visible)) {
 			Clipboard.SetText(CurrentDataTable.GetDataTable().SelectedCells[0].Value.ToString());
 		}
 	}
 
 	private void вставитьToolStripMenuItem_Click(object sender, EventArgs e)
 	{
-		if (CurrentDataTable.GetDataTable().SelectedCells.Count > 0 ) {
+		if ((CurrentDataTable.GetDataTable().SelectedCells.Count > 0 )&&(CurrentDataTable.GetDataTable().Visible)) {
 				if (CurrentDataTable.GetDataTable().SelectedCells[0].ColumnIndex > 0) { 
 					CurrentDataTable.GetDataTable().SelectedCells[0].Value = Clipboard.GetText();
 				}
@@ -357,7 +367,7 @@ public partial class BankLab : Form
 
 	private void вырезатьToolStripMenuItem_Click(object sender, EventArgs e)
 	{
-		if (CurrentDataTable.GetDataTable().SelectedCells.Count > 0 ) {
+		if ((CurrentDataTable.GetDataTable().SelectedCells.Count > 0 )&&(CurrentDataTable.GetDataTable().Visible)) {
 			if (CurrentDataTable.GetDataTable().SelectedCells[0].ColumnIndex > 0) { 
 				Clipboard.SetText(CurrentDataTable.GetDataTable().SelectedCells[0].Value.ToString());
 				CurrentDataTable.GetDataTable().SelectedCells[0].Value = string.Empty;

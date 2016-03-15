@@ -45,9 +45,10 @@ namespace BankLab.Components
 					ShowCoefficientForm(Index);
 				}
 				else {
-					Parent.CurrentDataTable.GetDataTable().Visible = false;
+					//Parent.CurrentDataTable.GetDataTable().Visible = false;
 					//Parent.MainMenuStrip.Enabled = false;
-					Parent.CurrentCoefficientForm.GetCurrentCoefficientForm().Show();
+					//Parent.CurrentCoefficientForm.GetCurrentCoefficientForm().Show();
+					Parent.MDI.TryShowMDIForm(typeof(coefficient_form));
 					Parent.CurrentCoefficientForm.GetCurrentCoefficientForm().SetIndex(Index);
 					Parent.CurrentCoefficientForm.GetCurrentCoefficientForm().AddTableAtForm();
 				}
@@ -56,7 +57,7 @@ namespace BankLab.Components
 
 		public void ShowCoefficientForm(int Index)
 		{
-			Parent.CurrentDataTable.GetDataTable().Visible = false;
+			//Parent.CurrentDataTable.GetDataTable().Visible = false;
 			//Parent.MainMenuStrip.Enabled = false;
 			if ((Index != -1) && (CurrentForm == null)) {
 				CurrentForm = new coefficient_form(null, 0);
