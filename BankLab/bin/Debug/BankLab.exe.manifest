@@ -43,38 +43,38 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BankLab.exe" size="305152">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BankLab.exe" size="306176">
       <assemblyIdentity name="BankLab" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>CpDx4bugbJIDPwLOqouwtslx5aGJ62Niy2QIfSMGgpg=</dsig:DigestValue>
+        <dsig:DigestValue>Vs2BmJX9EEX9fH/Crsy4vg7fTGqkbTC1+cvaxBzOZWk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="bl_res_doc.dll" size="3560448">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="bl_res_doc.dll" size="3629056">
       <assemblyIdentity name="bl_res_doc" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>kdmHmfHgK4BbCRo0vvy4L9iuNFx7aDMtHTI6l3JT6/8=</dsig:DigestValue>
+        <dsig:DigestValue>O57Qb0y3xAyLtIWc2DK/X3H+afKWXSmqo30ygbiszbE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="bl_res_styles.dll" size="119296">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="bl_res_styles.dll" size="120832">
       <assemblyIdentity name="bl_res_styles" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>km0E16BBR0Ns46ruSfjrbdXaWXh+oGipRLdejqwupYs=</dsig:DigestValue>
+        <dsig:DigestValue>Suq7x69MSoR9N6ElUfj0516PguoCe0Dxw+iiiIACVyA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -217,7 +217,23 @@ internal class ExcelFunctions
 
 	public static DataGridView StartRegression(bool[] SelectedColumns, BankLab Parent)
 	{
-			Excel.Application ExApp = GetExcelAppWithAddIn(); 
+		Excel.Application ExApp;
+		ResFile tmpFile = null;
+		int Index = Parent.CurrentCoefficientForm.GetCurrentCoefficientForm().GetIndex();
+		int count  = Array.FindAll(SelectedColumns, value => value).Length;
+		if ((count - 1 == bl_res_styles.bl_helper.RegParamCount[Index])&&
+			SelectedColumns[bl_res_styles.bl_helper.RegSelectedColumn[Index,0]]&&
+			 SelectedColumns[bl_res_styles.bl_helper.RegSelectedColumn[Index,1]]) 
+		{
+			ExApp = new Excel.Application();
+			tmpFile = new ResFile(
+				(byte[])bl_res_doc.Resource1.ResourceManager.GetObject(bl_res_styles.bl_helper.RegNames[Index]),
+				AppDomain.CurrentDomain.BaseDirectory+"tmp.xlsx");
+			tmpFile.CreateFile();
+			ExApp.Workbooks.Open(tmpFile.FileName);
+		}
+		else {
+			ExApp = GetExcelAppWithAddIn(); 
 			int ColumnsCount = ExportColumnsToExcel(ExApp, SelectedColumns, Parent);
 			string MacrosCode =
 				"Sub reg()\r\n" +
@@ -227,11 +243,15 @@ internal class ExcelFunctions
 				"End Sub\r\n";
 			AddMacros(ExApp, MacrosCode);
 			ExApp.Run("reg");
-			DataGridView ResTable = ReadResulFromExcel(ExApp, false);
-			ExApp.Workbooks[1].Close(false);
-			ExApp.Workbooks.Close();
-			ExApp.Quit();
-			return ResTable;
+		}
+		DataGridView ResTable = ReadResulFromExcel(ExApp, false);
+		ExApp.Workbooks[1].Close(false);
+		ExApp.Workbooks.Close();
+		ExApp.Quit();
+		if (tmpFile != null) { 
+			tmpFile.FreeFile();
+		}
+		return ResTable;
 	}
 }
 }

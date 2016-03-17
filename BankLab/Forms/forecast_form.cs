@@ -105,7 +105,7 @@ public partial class forecast_form : Form
 			if (Cache[Index, i * 2] != 0) {
 			table.Rows.Add();
 			table.Rows[i-1].Cells[0].Value = Cache[Index,i*2].ToString();
-			table.Rows[i-1].Cells[1].Value = Cache[Index,i*2+1].ToString();
+			table.Rows[i-1].Cells[1].Value = Cache[Index,i*2+1].ToString("#");
 			}
 		}
 		result_edit.Text  = Cache[Index,1].ToString();

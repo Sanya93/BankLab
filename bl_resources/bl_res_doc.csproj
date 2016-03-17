@@ -56,6 +56,13 @@
   <ItemGroup>
     <None Include="Resources\found_test.xlsx" />
     <None Include="Resources\integrate_test.xlsx" />
+    <None Include="Resources\ka.xlsx" />
+    <None Include="Resources\keia.xlsx" />
+    <None Include="Resources\kklb.xlsx" />
+    <None Include="Resources\kksz.xlsx" />
+    <None Include="Resources\km.xlsx" />
+    <None Include="Resources\kol.xlsx" />
+    <None Include="Resources\kpp.xlsx" />
     <None Include="Resources\Maket.xlsx" />
     <None Include="Resources\profit_test.xlsx" />
     <None Include="Resources\prognoz.xlsx" />

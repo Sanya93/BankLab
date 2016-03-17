@@ -150,6 +150,7 @@ namespace BankLab.Components
 																			index]](i, Table);
 				}
 			}
+			Table.Columns[1].HeaderCell.ToolTipText = bl_res_styles.bl_helper.KHint[index];
 			return Table;
 		}
 	}

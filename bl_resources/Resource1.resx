@@ -139,4 +139,25 @@
   <data name="optimization_db" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\optimization_db.accdb;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="ka" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ka.xlsx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="keia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\keia.xlsx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="kklb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\kklb.xlsx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="kksz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\kksz.xlsx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="km" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\km.xlsx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="kol" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\kol.xlsx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="kpp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\kpp.xlsx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

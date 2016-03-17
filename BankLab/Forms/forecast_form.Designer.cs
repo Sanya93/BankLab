@@ -84,7 +84,8 @@
 			// 
 			// target_coef
 			// 
-			this.target_coef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.target_coef.CausesValidation = false;
+			this.target_coef.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.target_coef.FormattingEnabled = true;
 			this.target_coef.Location = new System.Drawing.Point(28, 72);
 			this.target_coef.Name = "target_coef";
