@@ -17,6 +17,7 @@ public partial class forecast_form : Form
 	private BankLab Parent = null;
 	private float[,] Cache;
 	private Form PreviousForm = null;
+	private double[,] CoefficientInterval = {{0.5, 0.5},{0.5, 0.8},{0.8, 0},{0.2, 0},{0.65, 0.85},{0.96, 0.99},{1, 0}};
 
 	public forecast_form(BankLab parent)
 	{
@@ -109,6 +110,31 @@ public partial class forecast_form : Form
 			}
 		}
 		result_edit.Text  = Cache[Index,1].ToString();
+		if (CoefficientInterval[Index,0] != 0) {
+			IntervalLabel.Text = '('+ CoefficientInterval[Index,0].ToString();
+		}
+		if (CoefficientInterval[Index, 1] != 0) {
+			if (CoefficientInterval[Index, 1] == CoefficientInterval[Index, 0]) {
+				IntervalLabel.Text += ')';
+			}
+			else {
+				IntervalLabel.Text += " ; " + CoefficientInterval[Index,1].ToString() + ')';
+			}
+		}
+		else {
+			IntervalLabel.Text += " ; " +"∞" + ')';
+		}
+		if (Cache[Index,1] <= CoefficientInterval[Index,0]) {
+			StatusText.Text = "Прогнозируемое значение меньше нормы";			
+		}
+		else {
+			if ((Cache[Index, 1] >= CoefficientInterval[Index, 1]) && (CoefficientInterval[Index, 1] != 0)) {
+				StatusText.Text = "Прогнозируемое значение больше нормы";	
+			}
+			else {
+				StatusText.Text = "Прогнозируемое значение в пределах нормы";
+			}
+		}
 		result_edit.Focus();
 	}
 }

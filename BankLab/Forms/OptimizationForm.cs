@@ -386,7 +386,9 @@ public partial class OptimizationForm : Form
 		else {
 			ExApp.Workbooks[1].Close(true);
 		}
-		ExApp.Quit();
+		//ExApp.Quit();
+		ExApp.Workbooks.Open(fileName);
+		ExApp.Visible = true;
 		ProgressLabel.Text = String.Empty;
 	}
 

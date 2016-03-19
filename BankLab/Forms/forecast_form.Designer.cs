@@ -39,7 +39,12 @@
 			this.fact_value = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.label3 = new System.Windows.Forms.Label();
 			this.result_edit = new System.Windows.Forms.TextBox();
+			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+			this.StatusText = new System.Windows.Forms.ToolStripStatusLabel();
+			this.label4 = new System.Windows.Forms.Label();
+			this.IntervalLabel = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
+			this.statusStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// cancel
@@ -151,12 +156,47 @@
 			this.result_edit.Size = new System.Drawing.Size(204, 20);
 			this.result_edit.TabIndex = 20;
 			// 
+			// statusStrip1
+			// 
+			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StatusText});
+			this.statusStrip1.Location = new System.Drawing.Point(0, 314);
+			this.statusStrip1.Name = "statusStrip1";
+			this.statusStrip1.Size = new System.Drawing.Size(400, 22);
+			this.statusStrip1.TabIndex = 21;
+			this.statusStrip1.Text = "statusStrip1";
+			// 
+			// StatusText
+			// 
+			this.StatusText.Name = "StatusText";
+			this.StatusText.Size = new System.Drawing.Size(0, 17);
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(27, 268);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(186, 26);
+			this.label4.TabIndex = 22;
+			this.label4.Text = "Нормальное значение показателя \r\nнаходится в интервале:";
+			// 
+			// IntervalLabel
+			// 
+			this.IntervalLabel.AutoSize = true;
+			this.IntervalLabel.Location = new System.Drawing.Point(162, 281);
+			this.IntervalLabel.Name = "IntervalLabel";
+			this.IntervalLabel.Size = new System.Drawing.Size(0, 13);
+			this.IntervalLabel.TabIndex = 23;
+			// 
 			// forecast_form
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Gainsboro;
-			this.ClientSize = new System.Drawing.Size(400, 309);
+			this.ClientSize = new System.Drawing.Size(400, 336);
+			this.Controls.Add(this.IntervalLabel);
+			this.Controls.Add(this.label4);
+			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.result_edit);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.table);
@@ -172,6 +212,8 @@
 			this.Text = "open_form";
 			this.Load += new System.EventHandler(this.forecast_form_Load);
 			((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
+			this.statusStrip1.ResumeLayout(false);
+			this.statusStrip1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -190,6 +232,10 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn fact_value;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox result_edit;
+		private System.Windows.Forms.StatusStrip statusStrip1;
+		private System.Windows.Forms.ToolStripStatusLabel StatusText;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label IntervalLabel;
 
     }
 }
