@@ -50,5 +50,46 @@ public partial class SettingsForm : Form
 		}
 		this.Close();
 	}
+
+	private void SettingsForm_Load(object sender, EventArgs e)
+	{
+		Binding bind = new Binding("BackColor",Parent.Settings,"TitleColor");
+		bind.DataSourceUpdateMode = DataSourceUpdateMode.OnPropertyChanged;
+		ActiveColorBox.DataBindings.Add("BackColor",Parent.Settings,"ActiveColor");
+		UnactiveColorBox.DataBindings.Add("BackColor",Parent.Settings,"InActiveColor");
+		TitleColorBox.DataBindings.Add(bind);
+		StartupSetting.DataBindings.Add("Checked", Parent.Settings, "Autorun");
+		ShowSidebarSetting.DataBindings.Add("Checked", Parent.Settings, "ShowSideBar");
+		title_label.DataBindings.Add("BackColor",Parent.Settings,"TitleColor");
+	}
+
+	
+	private void ColorBox_Click(object sender, EventArgs e)
+	{
+		ColorDialog CDialog = new ColorDialog();
+		DialogResult result = CDialog.ShowDialog();
+		if (result == System.Windows.Forms.DialogResult.OK) {
+			((PictureBox)sender).BackColor = CDialog.Color;
+		}
+	}
+
+	private void SetDefaultSettings_Click(object sender, EventArgs e)
+	{
+		ActiveColorBox.BackColor = SystemColors.Control;
+		UnactiveColorBox.BackColor = SystemColors.ControlDark;
+		TitleColorBox.BackColor = Color.SteelBlue;
+		StartupSetting.Checked = false;
+		ShowSidebarSetting.Checked = false;
+	}
+
+	private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)
+	{
+		Parent.Settings.WriteSettings();
+	}
+
+	private void SettingsForm_Click(object sender, EventArgs e)
+	{
+		Parent.Settings.TitleColor = Color.Red;
+	}
 }
 }

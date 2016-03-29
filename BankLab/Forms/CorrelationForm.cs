@@ -44,6 +44,7 @@ public partial class CorrelationForm : Form
 		this.Size = CurrentSize;
 		Parent.SetMinimumSize(this.Size);
 		Parent.SetCenterToMDIForms();
+		title_label.DataBindings.Add("BackColor",Parent.Settings,"TitleColor");
 	}
 
 	private void StartButton_Click(object sender, EventArgs e)

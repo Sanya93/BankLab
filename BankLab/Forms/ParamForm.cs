@@ -109,6 +109,7 @@ namespace BankLab
 	private void ParamForm_Load(object sender, EventArgs e)
 	{
 		this.FormClosing += CloseParamFormDelegate;
+		title_label.DataBindings.Add("BackColor",Parent.Settings,"TitleColor");
 	}
 }
 }

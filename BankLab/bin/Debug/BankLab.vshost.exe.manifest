@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BankLab.exe" size="308224">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BankLab.exe" size="312320">
       <assemblyIdentity name="BankLab" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>EiZzMF/FJr6pJXPX/994aFTettUchFppA60lNDrbYCo=</dsig:DigestValue>
+        <dsig:DigestValue>mTNqHWNs0qLXmUithxCPI+ntZHAea7/tt07Ls8P2riQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

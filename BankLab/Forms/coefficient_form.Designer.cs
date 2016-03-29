@@ -70,9 +70,6 @@
 			// 
 			this.sub_main_menu.AllowMerge = false;
 			this.sub_main_menu.BackColor = System.Drawing.SystemColors.Control;
-			this.sub_main_menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.файлToolStripMenuItem,
-            this.функцииToolStripMenuItem});
 			this.sub_main_menu.Location = new System.Drawing.Point(0, 30);
 			this.sub_main_menu.Name = "sub_main_menu";
 			this.sub_main_menu.Size = new System.Drawing.Size(700, 24);

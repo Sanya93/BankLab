@@ -27,6 +27,7 @@ public partial class AuthorsForm : Form
 			else {
 				Parent.CurrentDataTable.GetDataTable().Hide();
 			}
+		title_label.DataBindings.Add("BackColor",Parent.Settings,"TitleColor");
 		}
 	}
 

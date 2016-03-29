@@ -80,6 +80,7 @@
     <Compile Include="Components\MDIForms.cs" />
     <Compile Include="Components\Menu.cs" />
     <Compile Include="Components\ProgressBar.cs" />
+    <Compile Include="Components\Settings.cs" />
     <Compile Include="Components\SideBar.cs" />
     <Compile Include="Components\StatusBar.cs" />
     <Compile Include="Forms\AuthorsForm.cs">
@@ -221,19 +222,10 @@
       <DependentUpon>year_form.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\app.manifest" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
   <ItemGroup>

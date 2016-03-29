@@ -27,6 +27,7 @@ public partial class BankLab : Form
 	public Components.MDIForms MDI;
 	public Components.CoefficientTable CurrentCoefficientForm;
 	private bool SizeFlag;
+	public Components.Settings Settings; 
 
 	public BankLab()
 	{
@@ -57,6 +58,9 @@ public partial class BankLab : Form
 		CurrentSideBar = new Components.SideBar("Диспетчер таблиц:", sidebar_panel, sidebar_splitter, this);
 		CurrentStatusBar = new Components.StatusBar(status_bar, toolstrip_label, this);
 		CurrentDataBase = new Modules.current_database();
+		Settings = new Components.Settings();
+		RegistryOperation.CheckProgramInRegistry();
+		Settings.ReadSettings();
 		MDI = new Components.MDIForms(this);
 	}
 

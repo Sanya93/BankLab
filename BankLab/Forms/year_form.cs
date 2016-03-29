@@ -42,6 +42,7 @@ public partial class year_form : Form
 			else {
 				Parent.CurrentDataTable.GetDataTable().Hide();
 			}
+			title_label.DataBindings.Add("BackColor",Parent.Settings,"TitleColor");
 		}
 		this.start_year_edit.KeyDown += DelegateButtonsDown;
 		this.end_year_edit.KeyDown += DelegateButtonsDown;

@@ -31,6 +31,7 @@ public partial class open_form : Form
 			else {
 				Parent.CurrentDataTable.GetDataTable().Hide();
 			}
+			title_label.DataBindings.Add("BackColor",Parent.Settings,"TitleColor");
 		}
 		DataTable = dataTable;
 	}

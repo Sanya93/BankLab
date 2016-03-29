@@ -27,6 +27,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.title_label = new System.Windows.Forms.Label();
 			this.ActiveColorBox = new System.Windows.Forms.PictureBox();
 			this.label1 = new System.Windows.Forms.Label();
@@ -36,10 +37,10 @@
 			this.TitleColorBox = new System.Windows.Forms.PictureBox();
 			this.ColorBox = new System.Windows.Forms.GroupBox();
 			this.DownPanel = new System.Windows.Forms.Panel();
+			this.back_button = new System.Windows.Forms.Button();
 			this.SetDefaultSettings = new System.Windows.Forms.LinkLabel();
 			this.StartupSetting = new System.Windows.Forms.CheckBox();
 			this.ShowSidebarSetting = new System.Windows.Forms.CheckBox();
-			this.back_button = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.ActiveColorBox)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.UnactiveColorBox)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.TitleColorBox)).BeginInit();
@@ -67,6 +68,7 @@
 			this.ActiveColorBox.Size = new System.Drawing.Size(20, 18);
 			this.ActiveColorBox.TabIndex = 9;
 			this.ActiveColorBox.TabStop = false;
+			this.ActiveColorBox.Click += new System.EventHandler(this.ColorBox_Click);
 			// 
 			// label1
 			// 
@@ -106,6 +108,7 @@
 			this.UnactiveColorBox.Size = new System.Drawing.Size(20, 18);
 			this.UnactiveColorBox.TabIndex = 13;
 			this.UnactiveColorBox.TabStop = false;
+			this.UnactiveColorBox.Click += new System.EventHandler(this.ColorBox_Click);
 			// 
 			// TitleColorBox
 			// 
@@ -115,6 +118,7 @@
 			this.TitleColorBox.Size = new System.Drawing.Size(20, 18);
 			this.TitleColorBox.TabIndex = 14;
 			this.TitleColorBox.TabStop = false;
+			this.TitleColorBox.Click += new System.EventHandler(this.ColorBox_Click);
 			// 
 			// ColorBox
 			// 
@@ -142,6 +146,17 @@
 			this.DownPanel.Size = new System.Drawing.Size(400, 31);
 			this.DownPanel.TabIndex = 16;
 			// 
+			// back_button
+			// 
+			this.back_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.back_button.Location = new System.Drawing.Point(12, 7);
+			this.back_button.Name = "back_button";
+			this.back_button.Size = new System.Drawing.Size(155, 20);
+			this.back_button.TabIndex = 13;
+			this.back_button.Text = "Вернуться к программе";
+			this.back_button.UseVisualStyleBackColor = true;
+			this.back_button.Click += new System.EventHandler(this.back_button_Click);
+			// 
 			// SetDefaultSettings
 			// 
 			this.SetDefaultSettings.AutoSize = true;
@@ -152,6 +167,7 @@
 			this.SetDefaultSettings.TabIndex = 0;
 			this.SetDefaultSettings.TabStop = true;
 			this.SetDefaultSettings.Text = "Настройки по умолчанию";
+			this.SetDefaultSettings.Click += new System.EventHandler(this.SetDefaultSettings_Click);
 			// 
 			// StartupSetting
 			// 
@@ -177,17 +193,6 @@
 			this.ShowSidebarSetting.Text = "Показывать Диспетчер таблиц по умолчанию";
 			this.ShowSidebarSetting.UseVisualStyleBackColor = true;
 			// 
-			// back_button
-			// 
-			this.back_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.back_button.Location = new System.Drawing.Point(12, 7);
-			this.back_button.Name = "back_button";
-			this.back_button.Size = new System.Drawing.Size(155, 20);
-			this.back_button.TabIndex = 13;
-			this.back_button.Text = "Вернуться к программе";
-			this.back_button.UseVisualStyleBackColor = true;
-			this.back_button.Click += new System.EventHandler(this.back_button_Click);
-			// 
 			// SettingsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,6 +207,9 @@
 			this.Name = "SettingsForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "SettingsForm";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsForm_FormClosing);
+			this.Load += new System.EventHandler(this.SettingsForm_Load);
+			this.Click += new System.EventHandler(this.SettingsForm_Click);
 			((System.ComponentModel.ISupportInitialize)(this.ActiveColorBox)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.UnactiveColorBox)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.TitleColorBox)).EndInit();

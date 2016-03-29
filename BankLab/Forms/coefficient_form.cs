@@ -31,6 +31,7 @@ public partial class coefficient_form : Form
 			else {
 				Parent.CurrentDataTable.GetDataTable().Hide();
 			}
+			title_label.DataBindings.Add("BackColor",Parent.Settings,"TitleColor");
 		}
 		DefaultHeight = title_label.Height + sub_main_menu.Height + statusStrip1.Height;
 		Index = index;
