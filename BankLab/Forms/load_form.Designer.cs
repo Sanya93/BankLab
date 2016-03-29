@@ -78,6 +78,7 @@
 			this.pic_to_background.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pic_to_background.TabIndex = 0;
 			this.pic_to_background.TabStop = false;
+			this.pic_to_background.Click += new System.EventHandler(this.pic_to_background_Click);
 			// 
 			// load_form
 			// 

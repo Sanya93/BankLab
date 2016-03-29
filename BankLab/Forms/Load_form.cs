@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel =  Microsoft.Office.Interop.Excel;
+using Access = Microsoft.Office.Interop.Access;
+using System.IO;
 
 namespace BankLab
 {
@@ -25,7 +28,26 @@ public partial class load_form : Form
 	/* check all resources for application */
 	private void Th_CheckResources(object sender)
 	{
-		this.BeginInvoke(new MethodInvoker(delegate{
+		this.BeginInvoke(new MethodInvoker(delegate
+		{
+			string[] FilesToCheckBeforeStart = { "bl_res_doc.dll", "bl_res_styles.dll", "handle.exe", "about.chm" };
+			bool Flag = false;
+			foreach (string tmp in FilesToCheckBeforeStart) {
+				if (!File.Exists(AppDomain.CurrentDomain.BaseDirectory.ToString() + tmp)) {
+					MessageBox.Show("Отсутствует файл " + tmp, "Файл не найден", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Flag = true;
+				}
+			}
+			if (Flag == true) {
+				Program.IsLoadFalse = true;
+			}
+			try {
+				Excel.Application CheckExcell = new Excel.Application();
+				Access.Application CheckAccess = new Access.Application();
+			}
+			catch (Exception ex) {
+				MessageBox.Show("Microsoft Office не установлен", "Ошибка программы", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			_PauseThread.Set();
 		}));
 	}
@@ -45,6 +67,11 @@ public partial class load_form : Form
 		/* Start thraed to check application resources */
 		SupportThread = new Thread(Th_CheckResources);
 		SupportThread.Start();
+	}
+
+	private void pic_to_background_Click(object sender, EventArgs e)
+	{
+
 	}
 }
 }

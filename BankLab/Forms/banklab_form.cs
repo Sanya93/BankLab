@@ -237,14 +237,16 @@ public partial class BankLab : Form
 
 	private int SaveCurrentChangesUntilExit()
 	{
-		if (CurrentDataTable.TableHasChanges()) {
-			DialogResult Result = MessageBox.Show("Сохранить изменения?",
-												  "База данных изменена",
-												  MessageBoxButtons.YesNo,
-												  MessageBoxIcon.Question);
-			if (Result == System.Windows.Forms.DialogResult.Yes) {
-				сохранитьToolStripMenuItem.PerformClick();
-				return 1;
+		if (CurrentDataBase.GetCurrentDataBase() != null) {
+			if (CurrentDataBase.GetCurrentDataBase().GetDataSet().HasChanges()) { 
+				DialogResult Result = MessageBox.Show("Сохранить изменения?",
+													  "База данных изменена",
+													  MessageBoxButtons.YesNo,
+													  MessageBoxIcon.Question);
+				if (Result == System.Windows.Forms.DialogResult.Yes) {
+					сохранитьToolStripMenuItem.PerformClick();
+					return 1;
+				}
 			}
 		}
 		return 0;

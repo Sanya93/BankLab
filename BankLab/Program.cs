@@ -15,6 +15,7 @@ public static class Program
 	private static Thread LoadThread;
 	public static ManualResetEvent LoadThreadPause = new ManualResetEvent(false);
 	public static load_form I_LoadForm = new load_form(LoadThreadPause);
+	public static bool IsLoadFalse = false;
 
 	private static void Th_LoadFormFunction(object sender)
 	{
@@ -32,7 +33,13 @@ public static class Program
 		LoadThreadPause.WaitOne();
 		/* End of preload */
 		/* Application starts after end of LoadThread functions */
-		Application.Run(new BankLab());
+		if (!IsLoadFalse) {
+			Thread.Sleep(2000);
+			Application.Run(new BankLab());
+		}
+		else {
+			Application.Exit();
+		}
 	}
 }
 }
