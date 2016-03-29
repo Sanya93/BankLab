@@ -38,7 +38,8 @@ public static class RegistryOperation
 		for (int i = 0; i < SettingsKeys.Length; i++) {
 			SettingsArray[i] = ProgramFolder.GetValue(SettingsKeys[i]).ToString();
 		}
-		SettingsArray[4] = false.ToString();
+		RegistryKey RunKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run",  true);
+		SettingsArray[4] = (RunKey.GetValue("BankLab") != null).ToString();
 		return SettingsArray;
 	}
 
@@ -51,10 +52,10 @@ public static class RegistryOperation
 		}
 		RegistryKey RunKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run",  true);
 		if (SettingsArray[4] == true.ToString()) {
-			RunKey.SetValue("BankLab", "BankLab.exe");
+			RunKey.SetValue("BankLab",AppDomain.CurrentDomain.BaseDirectory + "BankLab.exe");
 		}
 		else {
-			//RunKey.DeleteValue("BankLab", false);
+			RunKey.DeleteValue("BankLab", false);
 		}
 
 	}

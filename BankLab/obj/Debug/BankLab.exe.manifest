@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="BankLab.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
+  <asmv1:assemblyIdentity name="BankLab.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="amd64" type="win32" />
   <description asmv2:iconFile="Loader2.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="BankLab" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="BankLab" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
     <commandLine file="BankLab.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,26 +43,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BankLab.exe" size="312320">
-      <assemblyIdentity name="BankLab" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BankLab.exe" size="315904">
+      <assemblyIdentity name="BankLab" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>mTNqHWNs0qLXmUithxCPI+ntZHAea7/tt07Ls8P2riQ=</dsig:DigestValue>
+        <dsig:DigestValue>GI36s+8ZUFK1Pu/u7+y07cD3DcWZV3rHTTebMjlVMRY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="bl_res_doc.dll" size="3629056">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="bl_res_doc.dll" size="4830208">
       <assemblyIdentity name="bl_res_doc" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>O57Qb0y3xAyLtIWc2DK/X3H+afKWXSmqo30ygbiszbE=</dsig:DigestValue>
+        <dsig:DigestValue>2/vmTIXFFVccS0BojrVqu26S5xZQwBfMyEjoT2EuhXI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

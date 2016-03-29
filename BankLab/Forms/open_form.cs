@@ -32,6 +32,7 @@ public partial class open_form : Form
 				Parent.CurrentDataTable.GetDataTable().Hide();
 			}
 			title_label.DataBindings.Add("BackColor",Parent.Settings,"TitleColor");
+			this.DataBindings.Add("BackColor",Parent.Settings,"ActiveColor");
 		}
 		DataTable = dataTable;
 	}

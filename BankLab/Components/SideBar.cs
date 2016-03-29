@@ -30,6 +30,9 @@ public class SideBar
 		SideBarPanel = (Panel)parent;
 		FormParent = formParent;
 		SideBarTitle = CreateSideBarTitle(Caption);
+		if (formParent.Settings.ShowSideBar) {
+			SplitterAnimationTick();
+		}
 	}
 
 	/// <summary>
@@ -52,7 +55,7 @@ public class SideBar
 			sidebar_text.Dock = DockStyle.Top;
 			sidebar_text.TextAlign = ContentAlignment.MiddleCenter;
 			sidebar_text.Parent = SideBarPanel;
-			sidebar_text.BackColor = System.Drawing.Color.SteelBlue;
+			sidebar_text.DataBindings.Add("BackColor",FormParent.Settings,"TitleColor");	
 			sidebar_text.ForeColor = Color.White;
 			Surface = new Panel();
 			Surface.Parent = SideBarPanel;

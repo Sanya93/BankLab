@@ -64,6 +64,7 @@
     <None Include="Resources\kol.xlsx" />
     <None Include="Resources\kpp.xlsx" />
     <None Include="Resources\Maket.xlsx" />
+    <None Include="Resources\manual.docx" />
     <None Include="Resources\profit_test.xlsx" />
     <None Include="Resources\prognoz.xlsx" />
     <None Include="Resources\templates.xlsx" />

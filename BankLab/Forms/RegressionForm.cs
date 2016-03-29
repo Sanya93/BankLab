@@ -45,6 +45,7 @@ public partial class RegressionForm : Form
 		Parent.SetMinimumSize(this.Size);
 		Parent.SetCenterToMDIForms();
 		title_label.DataBindings.Add("BackColor",Parent.Settings,"TitleColor");
+		this.DataBindings.Add("BackColor",Parent.Settings,"ActiveColor");
 	}
 
 	private void StartButton_Click(object sender, EventArgs e)

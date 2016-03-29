@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
 using Excel =  Microsoft.Office.Interop.Excel;
+using Word = Microsoft.Office.Interop.Word;
 using System.IO;
 using System.Data.OleDb;
 using BankLab.Components;
@@ -47,6 +48,9 @@ public partial class BankLab : Form
 
 	private void InitializeControlsAndModules()
 	{
+		Settings = new Components.Settings();
+		RegistryOperation.CheckProgramInRegistry();
+		Settings.ReadSettings();
 		CurrentDataTable = new Components.DataTable(this);
 		CurrentMenu = new Components.Menu(this, main_menu);
 		CurrentCoefficientForm = new CoefficientTable(this);
@@ -58,9 +62,6 @@ public partial class BankLab : Form
 		CurrentSideBar = new Components.SideBar("Диспетчер таблиц:", sidebar_panel, sidebar_splitter, this);
 		CurrentStatusBar = new Components.StatusBar(status_bar, toolstrip_label, this);
 		CurrentDataBase = new Modules.current_database();
-		Settings = new Components.Settings();
-		RegistryOperation.CheckProgramInRegistry();
-		Settings.ReadSettings();
 		MDI = new Components.MDIForms(this);
 	}
 
@@ -292,7 +293,7 @@ public partial class BankLab : Form
 
 	private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
 	{
-
+		System.Diagnostics.Process.Start("about.chm");
 	}
 
 	private void прогнозированиеToolStripMenuItem_Click(object sender, EventArgs e)
@@ -399,6 +400,15 @@ public partial class BankLab : Form
 			Params[0] = this;
 			MDI.ShowMDIForm(CurrentSettingsForm, Params);
 		}
+	}
+
+	private void руководствоПользователяToolStripMenuItem_Click(object sender, EventArgs e)
+	{
+		ResFile man = new ResFile(bl_res_doc.Resource1.manual, AppDomain.CurrentDomain.BaseDirectory+"man.docx");
+		man.CreateFile();
+		Word.Application App = new Word.Application();
+		App.Documents.Open(man.FileName);
+		App.Visible = true;
 	}
 }
 }

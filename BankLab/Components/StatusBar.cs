@@ -39,7 +39,7 @@ public class StatusBar
 		if (CurrentControl.GetType() == typeof(MdiClient)) {
 			((Control)CurrentControl).Tag = "Рабочая область";
 			((MdiClient)CurrentControl).Name = "MDIConteiner";
-			((MdiClient)CurrentControl).BackColor = Color.Gray;
+			((MdiClient)CurrentControl).DataBindings.Add("BackColor",Parent.Settings, "InActiveColor");
 		}
 		/* Найти объекты у которых имеется свойство DropDownItems */
 		ShowControlInStatusbar(CurrentControl);

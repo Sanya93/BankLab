@@ -32,6 +32,7 @@ public partial class coefficient_form : Form
 				Parent.CurrentDataTable.GetDataTable().Hide();
 			}
 			title_label.DataBindings.Add("BackColor",Parent.Settings,"TitleColor");
+			this.DataBindings.Add("BackColor",Parent.Settings,"ActiveColor");
 		}
 		DefaultHeight = title_label.Height + sub_main_menu.Height + statusStrip1.Height;
 		Index = index;
@@ -119,7 +120,7 @@ public partial class coefficient_form : Form
 
 	public void SetIndex(int I)
 	{
-		Index=  I;
+		Index = I;
 	}
 
 	private void CoefficientForm_Load(object sender, EventArgs e)

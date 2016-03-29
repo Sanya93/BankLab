@@ -70,6 +70,9 @@
 			// 
 			this.sub_main_menu.AllowMerge = false;
 			this.sub_main_menu.BackColor = System.Drawing.SystemColors.Control;
+			this.sub_main_menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.файлToolStripMenuItem,
+            this.функцииToolStripMenuItem});
 			this.sub_main_menu.Location = new System.Drawing.Point(0, 30);
 			this.sub_main_menu.Name = "sub_main_menu";
 			this.sub_main_menu.Size = new System.Drawing.Size(700, 24);
@@ -89,7 +92,7 @@
 			// 
 			this.экспортToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("экспортToolStripMenuItem.Image")));
 			this.экспортToolStripMenuItem.Name = "экспортToolStripMenuItem";
-			this.экспортToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+			this.экспортToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.экспортToolStripMenuItem.Text = "Экспорт";
 			this.экспортToolStripMenuItem.Click += new System.EventHandler(this.экспортToolStripMenuItem_Click);
 			// 
@@ -97,7 +100,7 @@
 			// 
 			this.закрытьToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("закрытьToolStripMenuItem.Image")));
 			this.закрытьToolStripMenuItem.Name = "закрытьToolStripMenuItem";
-			this.закрытьToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+			this.закрытьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.закрытьToolStripMenuItem.Text = "Закрыть";
 			this.закрытьToolStripMenuItem.Click += new System.EventHandler(this.закрытьToolStripMenuItem_Click);
 			// 
@@ -113,17 +116,17 @@
 			// 
 			this.корреляцияToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("корреляцияToolStripMenuItem.Image")));
 			this.корреляцияToolStripMenuItem.Name = "корреляцияToolStripMenuItem";
-			this.корреляцияToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+			this.корреляцияToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.корреляцияToolStripMenuItem.Text = "Корреляция";
 			this.корреляцияToolStripMenuItem.Click += new System.EventHandler(this.корреляцияToolStripMenuItem_Click);
 			// 
 			// back_button
 			// 
-			this.back_button.Location = new System.Drawing.Point(3, 0);
+			this.back_button.Location = new System.Drawing.Point(0, 1);
 			this.back_button.Name = "back_button";
-			this.back_button.Size = new System.Drawing.Size(78, 20);
+			this.back_button.Size = new System.Drawing.Size(155, 20);
 			this.back_button.TabIndex = 10;
-			this.back_button.Text = "Назад";
+			this.back_button.Text = "Назад к главной таблице";
 			this.back_button.UseVisualStyleBackColor = true;
 			this.back_button.Click += new System.EventHandler(this.back_button_Click);
 			// 
@@ -132,9 +135,9 @@
 			this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.panel1.BackColor = System.Drawing.SystemColors.Control;
 			this.panel1.Controls.Add(this.back_button);
-			this.panel1.Location = new System.Drawing.Point(590, 31);
+			this.panel1.Location = new System.Drawing.Point(526, 31);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(110, 22);
+			this.panel1.Size = new System.Drawing.Size(174, 22);
 			this.panel1.TabIndex = 11;
 			// 
 			// coefficient_form

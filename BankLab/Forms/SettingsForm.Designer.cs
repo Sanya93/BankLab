@@ -209,7 +209,6 @@
 			this.Text = "SettingsForm";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsForm_FormClosing);
 			this.Load += new System.EventHandler(this.SettingsForm_Load);
-			this.Click += new System.EventHandler(this.SettingsForm_Click);
 			((System.ComponentModel.ISupportInitialize)(this.ActiveColorBox)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.UnactiveColorBox)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.TitleColorBox)).EndInit();

@@ -163,6 +163,16 @@ namespace bl_res_doc {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Byte[].
         /// </summary>
+        public static byte[] manual {
+            get {
+                object obj = ResourceManager.GetObject("manual", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
         public static byte[] optimization_db {
             get {
                 object obj = ResourceManager.GetObject("optimization_db", resourceCulture);

@@ -53,14 +53,19 @@ public partial class SettingsForm : Form
 
 	private void SettingsForm_Load(object sender, EventArgs e)
 	{
-		Binding bind = new Binding("BackColor",Parent.Settings,"TitleColor");
+		Binding bind = new Binding("BackColor",Parent.Settings,"ActiveColor");
 		bind.DataSourceUpdateMode = DataSourceUpdateMode.OnPropertyChanged;
-		ActiveColorBox.DataBindings.Add("BackColor",Parent.Settings,"ActiveColor");
-		UnactiveColorBox.DataBindings.Add("BackColor",Parent.Settings,"InActiveColor");
+		ActiveColorBox.DataBindings.Add(bind);
+		bind = new Binding("BackColor",Parent.Settings,"InActiveColor");
+		bind.DataSourceUpdateMode = DataSourceUpdateMode.OnPropertyChanged;
+		UnactiveColorBox.DataBindings.Add(bind);
+		bind = new Binding("BackColor",Parent.Settings,"TitleColor");
+		bind.DataSourceUpdateMode = DataSourceUpdateMode.OnPropertyChanged;
 		TitleColorBox.DataBindings.Add(bind);
 		StartupSetting.DataBindings.Add("Checked", Parent.Settings, "Autorun");
 		ShowSidebarSetting.DataBindings.Add("Checked", Parent.Settings, "ShowSideBar");
 		title_label.DataBindings.Add("BackColor",Parent.Settings,"TitleColor");
+		this.DataBindings.Add("BackColor",Parent.Settings,"ActiveColor");
 	}
 
 	
@@ -85,11 +90,6 @@ public partial class SettingsForm : Form
 	private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)
 	{
 		Parent.Settings.WriteSettings();
-	}
-
-	private void SettingsForm_Click(object sender, EventArgs e)
-	{
-		Parent.Settings.TitleColor = Color.Red;
 	}
 }
 }
